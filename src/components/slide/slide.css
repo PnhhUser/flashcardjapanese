@@ -1,0 +1,9 @@
+@reference '../app.css';
+
+.slide {
+  @apply h-full w-full;
+}
+
+.slide-item {
+  @apply h-full w-full p-2 flex items-center justify-center;
+}

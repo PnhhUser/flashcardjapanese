@@ -1,0 +1,64 @@
+@reference '../app.css';
+
+.card-container {
+  perspective: 1000px;
+}
+
+.card-learn {
+  @apply h-96 w-80 relative;
+  transform-style: preserve-3d;
+}
+
+.card-face {
+  @apply absolute w-full h-full flex items-center justify-center rounded-lg shadow-md bg-white text-xl;
+  backface-visibility: hidden;
+}
+
+.front {
+  @apply bg-blue-500;
+}
+
+.front .term {
+  @apply text-9xl text-white;
+}
+
+/* BACK CARD */
+.back {
+  transform: rotateY(180deg);
+  @apply bg-white p-6 flex items-center justify-center;
+}
+
+/* CONTENT */
+.back-content {
+  @apply w-full flex flex-col items-center gap-6;
+}
+
+/* GROUP chính */
+.main {
+  @apply flex flex-col gap-5 w-full;
+}
+
+/* mỗi row */
+.row {
+  @apply flex flex-col items-center;
+}
+
+/* label */
+.label {
+  @apply text-xs text-gray-400 uppercase tracking-widest;
+}
+
+/* value */
+.value {
+  @apply text-xl font-semibold text-gray-800;
+}
+
+/* chữ Nhật nổi bật */
+.value.jp {
+  @apply text-3xl font-bold;
+}
+
+/* note */
+.note {
+  @apply w-full mt-2 p-3 bg-gray-100 rounded-md text-sm text-gray-600 italic text-center;
+}

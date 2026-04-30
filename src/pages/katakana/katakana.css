@@ -1,0 +1,43 @@
+@reference "../App.css";
+
+.katakana-page {
+  @apply px-4 pt-6 pb-10;
+}
+
+.katakana-page .title {
+  @apply text-2xl font-bold mb-6;
+}
+
+.katakana-page .menu-list {
+  @apply flex flex-col gap-4;
+}
+
+.katakana-page .menu-card {
+  @apply flex items-center justify-between
+         bg-white p-4 rounded-2xl shadow-md
+         active:scale-95 transition-all duration-200;
+}
+
+.katakana-page .card-left {
+  @apply flex items-center justify-center w-12 h-12 bg-green-100 rounded-xl;
+}
+
+.katakana-page .card-icon {
+  @apply text-2xl font-bold text-green-500;
+}
+
+.katakana-page .card-content {
+  @apply flex-1 ml-4;
+}
+
+.katakana-page .card-content h2 {
+  @apply text-lg font-semibold;
+}
+
+.katakana-page .card-content p {
+  @apply text-sm text-gray-500;
+}
+
+.katakana-page .card-arrow {
+  @apply text-gray-400 text-xl;
+}
