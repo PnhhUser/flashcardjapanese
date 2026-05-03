@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
 import "./card-learn.css";
 import type { JapaneseType, Typeface } from "../../core/enums";
@@ -16,22 +15,35 @@ export interface JapaneseItem {
 
 type Props = {
   item: JapaneseItem;
+  isFlipped: boolean;
+  onFlip: () => void;
 };
 
-function CardLearn({ item }: Props) {
-  const [isFlipped, setIsFlipped] = useState(false);
+function CardLearn({ item, isFlipped, onFlip }: Props) {
+  const handleSpeak = (e: React.MouseEvent) => {
+    e.stopPropagation();
 
-  const handleFlip = () => {
-    setIsFlipped((prev) => !prev);
+    if ("speechSynthesis" in window) {
+      window.speechSynthesis.cancel();
+
+      const utterance = new SpeechSynthesisUtterance(item.term);
+      utterance.lang = "ja-JP";
+      utterance.rate = 0.9;
+      utterance.pitch = 1.0;
+
+      window.speechSynthesis.speak(utterance);
+    } else {
+      console.warn("Trình duyệt không hỗ trợ Web Speech API");
+    }
   };
 
   return (
     <div className="card-container">
       <motion.div
         className="card-learn"
-        onClick={handleFlip}
+        onClick={onFlip}
         animate={{ rotateY: isFlipped ? 180 : 0 }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.4, ease: "easeInOut" }}
         style={{ transformStyle: "preserve-3d" }}
       >
         {/* Front */}
@@ -44,7 +56,7 @@ function CardLearn({ item }: Props) {
           <div className="back-content">
             <div className="main">
               <div className="row">
-                <span className="label">Reading</span>
+                <span className="label">Cách đọc</span>
                 <span className="value jp">{item.reading}</span>
               </div>
 
@@ -56,6 +68,14 @@ function CardLearn({ item }: Props) {
 
             {item.note && <div className="note">{item.note}</div>}
           </div>
+
+          <button
+            className="speaker-btn"
+            onClick={handleSpeak}
+            aria-label="Phát âm"
+          >
+            🔊
+          </button>
         </div>
       </motion.div>
     </div>

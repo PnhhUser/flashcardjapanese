@@ -1,0 +1,138 @@
+/* vocabulary-card.css */
+@reference '../app.css';
+
+.vocab-card-container {
+  @apply w-full h-full flex items-center justify-center perspective-[1000px];
+}
+
+.vocab-card {
+  @apply relative w-[360px] h-[480px] cursor-pointer transform-3d transition-shadow rounded-2xl;
+}
+
+.vocab-card:hover {
+  @apply shadow-2xl;
+}
+
+/* Mặt trước - Gradient xanh nhẹ */
+.vocab-card-front {
+  @apply absolute w-full h-full rounded-2xl shadow-lg backface-hidden bg-linear-to-br from-sky-400 to-blue-500;
+}
+
+/* Nút loa - Màu đặc, không hiệu ứng 3D */
+.speaker-btn-front {
+  @apply absolute top-4 right-4 bg-white rounded-full w-10 h-10 flex items-center justify-center text-sky-500 transition-all;
+}
+
+.speaker-btn-front:hover {
+  @apply bg-sky-100 scale-110;
+}
+
+.speaker-btn-front:active {
+  @apply scale-95;
+}
+
+.term-wrapper {
+  @apply flex items-center justify-center w-full h-full p-5;
+}
+
+.term-text {
+  @apply text-6xl font-bold text-white text-center [text-shadow:2px_2px_4px_rgba(0,0,0,0.2)] wrap-break-word;
+}
+
+/* Mặt sau */
+.vocab-card-back {
+  @apply absolute w-full h-full rounded-2xl shadow-lg backface-hidden transform-[rotateY(180deg)] bg-white p-6 overflow-y-auto;
+}
+
+.back-content {
+  @apply flex flex-col gap-6 h-full;
+}
+
+/* Reading section */
+.reading-section {
+  @apply rounded-xl p-4 w-64;
+}
+
+.reading-row {
+  @apply flex justify-between items-baseline mb-3;
+}
+
+.reading-row:last-child {
+  @apply mb-0;
+}
+
+.label {
+  @apply text-xs font-semibold text-sky-600 uppercase tracking-wider;
+}
+
+.reading-text {
+  @apply text-lg font-medium text-sky-800;
+}
+
+.romaji-text {
+  @apply text-base text-sky-600 italic;
+}
+
+/* Meaning section */
+.meaning-section {
+  @apply rounded-xl p-4 w-64;
+}
+
+.meaning-section .label {
+  @apply block mb-2 text-sky-600;
+}
+
+.meaning-text {
+  @apply text-lg font-semibold text-sky-800 m-0 leading-relaxed;
+}
+
+/* Example section */
+.example-section {
+  @apply bg-sky-50 rounded-xl p-4;
+}
+
+.example-section .label {
+  @apply block mb-2 text-sky-600;
+}
+
+.example-text {
+  @apply text-base text-sky-800 font-medium m-0 mb-2;
+}
+
+.example-meaning {
+  @apply text-sm text-sky-600 italic m-0;
+}
+
+/* Note section */
+.note-section {
+  @apply bg-sky-50 rounded-xl p-4;
+}
+
+.note-section .label {
+  @apply block mb-2 text-sky-600;
+}
+
+.note-text {
+  @apply text-sm text-sky-800 m-0 leading-relaxed;
+}
+
+/* Scrollbar */
+.custom-scrollbar {
+  scrollbar-width: thin;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  @apply w-1.5;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  @apply bg-gray-100 rounded-lg;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-sky-200 rounded-lg;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  @apply bg-sky-300;
+}
