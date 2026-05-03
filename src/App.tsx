@@ -28,7 +28,7 @@ function App() {
           )}
         </NavLink>
 
-        <NavLink to="/katakana" className="link-item">
+        {/* <NavLink to="/katakana" className="link-item">
           {({ isActive }) => (
             <>
               {isActive && (
@@ -43,7 +43,7 @@ function App() {
               <span className={isActive ? "active-link" : ""}>Katakana</span>
             </>
           )}
-        </NavLink>
+        </NavLink> */}
       </nav>
 
       <div className="content">
