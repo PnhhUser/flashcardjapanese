@@ -1,4 +1,4 @@
-@reference '../app.css';
+@reference '../App.css';
 
 .card-container {
   perspective: 1000px;

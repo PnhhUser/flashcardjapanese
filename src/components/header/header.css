@@ -1,4 +1,4 @@
-@reference '../app.css';
+@reference '../App.css';
 
 .header {
   @apply flex items-center justify-between

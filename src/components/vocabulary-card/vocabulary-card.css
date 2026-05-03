@@ -1,5 +1,4 @@
-/* vocabulary-card.css */
-@reference '../app.css';
+@reference '../App.css';
 
 .vocab-card-container {
   @apply w-full h-full flex items-center justify-center perspective-[1000px];

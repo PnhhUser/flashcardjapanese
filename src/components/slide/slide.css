@@ -1,4 +1,4 @@
-@reference '../app.css';
+@reference '../App.css';
 
 .slide {
   @apply h-full w-full;
