@@ -1,56 +1,25 @@
-import { NavLink, Outlet, useLocation } from "react-router";
-import { motion } from "framer-motion";
-
-import "./App.css";
+import { useCallback } from "react";
+import { getHiragana } from "./core/services/japanese";
+import { useApi } from "./core/hooks/useApi";
+import type { Japanese } from "./core/model/japanese";
+import Slide from "./components/slide"; // Import component Slide
 
 function App() {
-  const location = useLocation();
+  const hiragana = useCallback(() => {
+    return getHiragana();
+  }, []);
 
-  const isKatakana = location.pathname.includes("katakana");
+  const { data, loading } = useApi<Japanese[]>(hiragana);
 
-  return (
-    <div className="app">
-      <nav className="navbar">
-        <NavLink to="/hiragana" className="link-item">
-          {({ isActive }) => (
-            <>
-              {isActive && (
-                <motion.div
-                  layoutId="slider"
-                  className={`slider ${
-                    isKatakana ? "bg-green-500" : "bg-blue-500"
-                  }`}
-                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                />
-              )}
-              <span className={isActive ? "active-link" : ""}>Hiragana</span>
-            </>
-          )}
-        </NavLink>
-
-        {/* <NavLink to="/katakana" className="link-item">
-          {({ isActive }) => (
-            <>
-              {isActive && (
-                <motion.div
-                  layoutId="slider"
-                  className={`slider ${
-                    isKatakana ? "bg-green-500" : "bg-blue-500"
-                  }`}
-                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                />
-              )}
-              <span className={isActive ? "active-link" : ""}>Katakana</span>
-            </>
-          )}
-        </NavLink> */}
-      </nav>
-
-      <div className="content">
-        <Outlet />
+  if (loading) {
+    return (
+      <div className="flex h-screen items-center justify-center">
+        Loading...
       </div>
-    </div>
-  );
+    );
+  }
+
+  return <div className="app">{data && <Slide data={data} />}</div>;
 }
 
 export default App;

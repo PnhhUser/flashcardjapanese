@@ -1,5 +1,0 @@
-@reference "../App.css";
-
-.vocabulary {
-  @apply h-screen w-full bg-gray-100;
-}

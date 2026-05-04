@@ -1,3 +1,15 @@
+export interface Japanese {
+  id: string;
+  kanaType: number;
+  meaning: string;
+  note: string;
+  reading: string;
+  romaji: string;
+  term: string;
+  type: JapaneseType;
+  typeface: Typeface;
+}
+
 export const Typeface = {
   Hiragana: 1,
   Katakana: 2,
