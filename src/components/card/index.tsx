@@ -66,7 +66,7 @@ function Card({ data, isActive }: Props) {
   };
 
   const UpperSize = (type: JapaneseType) => {
-    return type === JapaneseType.Character ? "text-[3rem]" : "text-[1.09rem]";
+    return type === JapaneseType.Character ? "text-[3rem]" : "text-[1.1rem]";
   };
 
   return (
@@ -80,7 +80,7 @@ function Card({ data, isActive }: Props) {
         <div className="absolute w-full h-full backface-hidden p-2 bg-white rounded-xl border border-slate-200 flex flex-col">
           <div className="w-full flex-1 relative">
             <div
-              className="absolute right-0 w-8 h-8 bg-white shadow rounded-full cursor-pointer active:scale-90 transition-all duration-150 flex justify-center items-center group hover:border-blue-400 border border-transparent"
+              className="absolute left-0 w-8 h-8 bg-white shadow rounded-full cursor-pointer active:scale-90 transition-all duration-150 flex justify-center items-center group hover:border-blue-400 border border-transparent"
               onClick={() => onSpeak(data.term)}
             >
               <CiVolumeHigh

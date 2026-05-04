@@ -1,25 +1,26 @@
-import { useCallback } from "react";
-import { getHiragana } from "./core/services/japanese";
-import { useApi } from "./core/hooks/useApi";
-import type { Japanese } from "./core/model/japanese";
-import Slide from "./components/slide"; // Import component Slide
+import { CiTextAlignRight } from "react-icons/ci";
+import Drawer from "./components/drawer";
+import { useDrawer } from "./core/hooks/useDrawer";
+import { Outlet } from "react-router";
 
 function App() {
-  const hiragana = useCallback(() => {
-    return getHiragana();
-  }, []);
+  const { isCollapse, toggleDrawer } = useDrawer();
 
-  const { data, loading } = useApi<Japanese[]>(hiragana);
+  return (
+    <div className="app">
+      {isCollapse && (
+        <div
+          className="w-12 h-12 bg-blue-400 flex justify-center items-center absolute top-4 right-4 cursor-pointer"
+          onClick={toggleDrawer}
+        >
+          <CiTextAlignRight size={22} className="text-white" />
+        </div>
+      )}
+      <Outlet />
 
-  if (loading) {
-    return (
-      <div className="flex h-screen items-center justify-center">
-        Loading...
-      </div>
-    );
-  }
-
-  return <div className="app">{data && <Slide data={data} />}</div>;
+      <Drawer isCollapse={isCollapse} onToggle={toggleDrawer} />
+    </div>
+  );
 }
 
 export default App;

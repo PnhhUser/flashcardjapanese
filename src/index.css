@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 .app {
-  @apply w-full h-screen bg-gray-200 flex justify-center items-center;
+  @apply w-full h-screen bg-gray-200 flex justify-center items-center relative;
 }
 
 .slide-app {
@@ -31,7 +31,7 @@
 
 .swiper-slide {
   display: flex !important;
-  align-items: center; /* Căn giữa dọc */
+  align-items: flex-start; /* Căn giữa dọc */
   justify-content: center; /* Căn giữa ngang */
   height: 100% !important; /* Đảm bảo slide cao bằng container */
 }
