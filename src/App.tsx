@@ -1,7 +1,7 @@
 import { CiTextAlignRight } from "react-icons/ci";
 import Drawer from "./components/drawer";
-import { useDrawer } from "./core/hooks/useDrawer";
 import { Outlet } from "react-router";
+import { useDrawer } from "./core/contexts/DrawerContext";
 
 function App() {
   const { isCollapse, toggleDrawer } = useDrawer();
@@ -18,7 +18,7 @@ function App() {
       )}
       <Outlet />
 
-      <Drawer isCollapse={isCollapse} onToggle={toggleDrawer} />
+      <Drawer />
     </div>
   );
 }

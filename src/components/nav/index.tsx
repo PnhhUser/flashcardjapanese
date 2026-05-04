@@ -1,7 +1,9 @@
 import { NavLink } from "react-router";
 import { CiShoppingTag } from "react-icons/ci";
+import { useDrawer } from "../../core/contexts/DrawerContext";
 
 function Nav() {
+  const { closeDrawer } = useDrawer();
   const menuItems = [
     {
       path: "/hiragana-syllable",
@@ -28,6 +30,7 @@ function Nav() {
                 : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
             }`
           }
+          onClick={closeDrawer}
         >
           <span className="flex-none">{item.icon}</span>
           <span className="text-sm whitespace-nowrap">{item.label}</span>
