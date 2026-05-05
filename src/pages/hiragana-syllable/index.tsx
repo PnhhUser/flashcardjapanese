@@ -12,17 +12,13 @@ function HiraganaSyllablePage() {
 
   const { data, loading } = useApi<Japanese[]>(hiragana);
 
-  if (loading) {
-    return (
-      <div className="flex h-screen items-center justify-center">
-        <Loading />
-      </div>
-    );
-  }
-
   return (
-    <div>
-      {data && <Slide data={data} storageKey="hiragana_syllable_index" />}
+    <div className="flex h-screen items-center justify-center">
+      {loading && <Loading />}
+
+      {!loading && data && (
+        <Slide data={data} storageKey="hiragana_syllable_index" />
+      )}
     </div>
   );
 }

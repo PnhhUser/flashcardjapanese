@@ -14,6 +14,7 @@ function Drawer() {
         {/* Header */}
         <div className="w-full flex-none h-12 flex items-center justify-end border-b border-slate-200 px-2">
           <button
+            aria-label="Đóng drawer"
             className="w-9 h-9 bg-blue-400 hover:bg-blue-500 transition-colors flex justify-center items-center cursor-pointer"
             onClick={toggleDrawer}
           >

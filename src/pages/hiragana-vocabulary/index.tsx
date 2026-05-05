@@ -12,16 +12,14 @@ function HiraganaVocabularyPage() {
 
   const { data, loading } = useApi<Japanese[]>(vocabulary);
 
-  if (loading) {
-    return (
-      <div className="flex h-screen items-center justify-center">
-        <Loading />
-      </div>
-    );
-  }
-
   return (
-    <div>{data && <Slide data={data} storageKey="hiragana_vocab_index" />}</div>
+    <div className="flex h-screen items-center justify-center">
+      {loading && <Loading />}
+
+      {!loading && data && (
+        <Slide data={data} storageKey="hiragana_vocab_index" />
+      )}
+    </div>
   );
 }
 

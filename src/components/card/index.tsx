@@ -90,12 +90,9 @@ function Card({ data, isActive }: Props) {
             </div>
           </div>
 
-          <div className="w-full flex-2">
+          <div className="w-full flex-2 min-h-18">
             <p
-              className={
-                " mt-1 text-center font-bold cursor-default " +
-                UpperSize(data.type)
-              }
+              className={`mt-1 text-center font-bold cursor-default ${UpperSize(data.type)}`}
             >
               {data.term}
             </p>
@@ -103,6 +100,7 @@ function Card({ data, isActive }: Props) {
 
           <div className="w-full flex-1 flex justify-between">
             <button
+              aria-label="Bỏ qua"
               className="bg-slate-300 text-white w-16 text-[12px] rounded active:scale-90 transition-all"
               onClick={handleSkip}
             >
@@ -110,6 +108,7 @@ function Card({ data, isActive }: Props) {
             </button>
 
             <button
+              aria-label="Chi tiết"
               className="bg-blue-300 text-white w-16 text-[12px] rounded active:scale-90 transition-all"
               onClick={handleFlip}
             >
