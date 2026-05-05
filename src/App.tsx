@@ -16,7 +16,10 @@ function App() {
           <CiTextAlignRight size={22} className="text-white" />
         </div>
       )}
-      <Outlet />
+
+      <main>
+        <Outlet />
+      </main>
 
       <Drawer />
     </div>
