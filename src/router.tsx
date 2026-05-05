@@ -3,6 +3,8 @@ import App from "./App";
 import HiraganaSyllablePage from "./pages/hiragana-syllable";
 import NotFoundPage from "./NotFoundPage";
 import HiraganaVocabularyPage from "./pages/hiragana-vocabulary";
+import KatakanaVocabularyPage from "./pages/katakana-vocabulary";
+import KanjiVocabularyPage from "./pages/kanji-vocabulary";
 
 const AppRouter = () => {
   return (
@@ -15,6 +17,11 @@ const AppRouter = () => {
           path="hiragana-vocabulary"
           element={<HiraganaVocabularyPage />}
         />
+        <Route
+          path="katakana-vocabulary"
+          element={<KatakanaVocabularyPage />}
+        />
+        <Route path="kanji-vocabulary" element={<KanjiVocabularyPage />} />
       </Route>
 
       <Route path="*" element={<NotFoundPage />} />

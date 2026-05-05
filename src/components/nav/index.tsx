@@ -15,6 +15,16 @@ function Nav() {
       label: "Từ vựng Hiragana",
       icon: <CiShoppingTag size={20} />,
     },
+    {
+      path: "/katakana-vocabulary",
+      label: "Từ vựng Katakana",
+      icon: <CiShoppingTag size={20} />,
+    },
+    {
+      path: "/kanji-vocabulary",
+      label: "Từ vựng Kanji",
+      icon: <CiShoppingTag size={20} />,
+    },
   ];
 
   return (
