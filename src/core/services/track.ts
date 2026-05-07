@@ -8,13 +8,9 @@ export const track = async () => {
   }
 
   try {
-    await apiClient
-      .post("/visitors", {
-        path: window.location.pathname,
-      })
-      .then((res) => {
-        console.log(res.data);
-      });
+    await apiClient.post("/visitors", {
+      path: window.location.pathname,
+    });
 
     sessionStorage.setItem("tracked", "true");
   } catch (error) {

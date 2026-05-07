@@ -20,7 +20,7 @@ export const getHiraganaVocabulary = async () => {
 
 export const getKatakanaVocabulary = async () => {
   const res = await apiClient.get<ApiResponse<Japanese[]>>(
-    `${URL}/katana-vocabulary`,
+    `${URL}/katakana-vocabulary`,
   );
 
   return res.data;
