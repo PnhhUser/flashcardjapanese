@@ -2,15 +2,17 @@ import { apiClient } from "../api/client";
 import type { ApiResponse } from "../model/api";
 import type { Japanese } from "../model/japanese";
 
+const URL = "/v1/jp";
+
 export const getHiragana = async () => {
-  const res = await apiClient.get<ApiResponse<Japanese[]>>("/jp/hiragana");
+  const res = await apiClient.get<ApiResponse<Japanese[]>>(`${URL}/hiragana`);
 
   return res.data;
 };
 
 export const getHiraganaVocabulary = async () => {
   const res = await apiClient.get<ApiResponse<Japanese[]>>(
-    "/jp/hiragana-vocabulary",
+    `${URL}/hiragana-vocabulary`,
   );
 
   return res.data;
@@ -18,7 +20,7 @@ export const getHiraganaVocabulary = async () => {
 
 export const getKatakanaVocabulary = async () => {
   const res = await apiClient.get<ApiResponse<Japanese[]>>(
-    "/jp/katakana-vocabulary",
+    `${URL}/katana-vocabulary`,
   );
 
   return res.data;
@@ -26,7 +28,7 @@ export const getKatakanaVocabulary = async () => {
 
 export const getKanjiVocabulary = async () => {
   const res = await apiClient.get<ApiResponse<Japanese[]>>(
-    "/jp/kanji-vocabulary",
+    `${URL}/kanji-vocabulary`,
   );
 
   return res.data;
