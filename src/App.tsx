@@ -13,23 +13,25 @@ function App() {
   }, []);
 
   return (
-    <div className="app">
-      {isCollapse && (
-        <div
-          className="w-12 h-12 bg-blue-400 flex justify-center items-center absolute top-4 right-4 cursor-pointer"
-          onClick={toggleDrawer}
-        >
-          <CiTextAlignRight size={22} className="text-white" />
-        </div>
-      )}
+    <div className="app min-h-screen bg-slate-50">
+      {/* Nút mở Menu cố định (Floating Button) */}
+      <button
+        className={`fixed top-6 right-6 z-90 w-12 h-12 bg-white shadow-lg border border-slate-100 rounded-2xl flex justify-center items-center cursor-pointer transition-all duration-300 hover:shadow-blue-100 active:scale-90 ${
+          !isCollapse ? "opacity-0 scale-0" : "opacity-100 scale-100"
+        }`}
+        onClick={toggleDrawer}
+      >
+        <CiTextAlignRight size={24} className="text-blue-600" />
+      </button>
 
-      <main>
+      {/* Main Content */}
+      <main className="relative z-10 transition-all duration-500">
         <Outlet />
       </main>
 
+      {/* Drawer bao gồm cả Overlay bên trong nó */}
       <Drawer />
     </div>
   );
 }
-
 export default App;

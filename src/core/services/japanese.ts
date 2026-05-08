@@ -33,3 +33,11 @@ export const getKanjiVocabulary = async () => {
 
   return res.data;
 };
+
+export const getAllVocabulary = async () => {
+  const res = await apiClient.get<ApiResponse<Japanese[]>>(
+    `${URL}/vocabulary`,
+  );
+
+  return res.data;
+};

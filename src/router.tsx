@@ -5,12 +5,15 @@ import NotFoundPage from "./NotFoundPage";
 import HiraganaVocabularyPage from "./pages/hiragana-vocabulary";
 import KatakanaVocabularyPage from "./pages/katakana-vocabulary";
 import KanjiVocabularyPage from "./pages/kanji-vocabulary";
+import QuickRecognition from "./pages/quick-recognition";
 
 const AppRouter = () => {
   return (
     <Routes>
       <Route path="/" element={<App />}>
-        <Route index element={<Navigate to="/hiragana-syllable" replace />} />
+        <Route index element={<Navigate to="/quick-recognition" replace />} />
+
+        <Route path="quick-recognition" element={<QuickRecognition />} />
 
         <Route path="hiragana-syllable" element={<HiraganaSyllablePage />} />
         <Route

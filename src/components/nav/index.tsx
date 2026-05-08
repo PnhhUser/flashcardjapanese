@@ -1,53 +1,57 @@
 import { NavLink } from "react-router";
-import { CiShoppingTag } from "react-icons/ci";
+import { CiBookmark, CiBoxList, CiGrid41, CiTrophy } from "react-icons/ci"; // Đổi icon cho đa dạng
 import { useDrawer } from "../../core/contexts/DrawerContext";
 
 function Nav() {
   const { closeDrawer } = useDrawer();
   const menuItems = [
     {
+      path: "/quick-recognition",
+      label: "Kiểm tra phản xạ",
+      icon: <CiTrophy size={22} />,
+    },
+    {
       path: "/hiragana-syllable",
       label: "Âm tiết Hiragana",
-      icon: <CiShoppingTag size={20} />,
+      icon: <CiGrid41 size={22} />,
     },
     {
       path: "/hiragana-vocabulary",
       label: "Từ vựng Hiragana",
-      icon: <CiShoppingTag size={20} />,
+      icon: <CiBookmark size={22} />,
     },
     {
       path: "/katakana-vocabulary",
       label: "Từ vựng Katakana",
-      icon: <CiShoppingTag size={20} />,
+      icon: <CiBoxList size={22} />,
     },
     {
       path: "/kanji-vocabulary",
       label: "Từ vựng Kanji",
-      icon: <CiShoppingTag size={20} />,
+      icon: <CiBookmark size={22} />,
     },
   ];
 
   return (
-    <nav className="flex flex-col gap-2 w-full">
+    <nav className="flex flex-col gap-2 w-full p-2">
       {menuItems.map((item) => (
         <NavLink
           key={item.path}
           to={item.path}
           className={({ isActive }) =>
-            `flex items-center gap-3 px-4 py-3 transition-all duration-200 ${
+            `flex items-center gap-4 px-4 py-3.5 rounded-2xl transition-all duration-300 ${
               isActive
-                ? "bg-blue-50 text-blue-500 font-semibold border-r-4 border-blue-500"
-                : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
+                ? "bg-blue-500 text-white shadow-lg shadow-blue-200"
+                : "text-slate-500 hover:bg-slate-100 hover:text-slate-900"
             }`
           }
           onClick={closeDrawer}
         >
           <span className="flex-none">{item.icon}</span>
-          <span className="text-sm whitespace-nowrap">{item.label}</span>
+          <span className="text-sm font-bold tracking-tight">{item.label}</span>
         </NavLink>
       ))}
     </nav>
   );
 }
-
 export default Nav;
